@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {mobile} from "../responsive";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100vw;
@@ -17,9 +17,14 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
+display:flex;
+flex-direction:column;
   width: 25%;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  gap:1rem;
+  border-radius:5px;
   ${mobile({ width: "75%" })}
 `;
 
@@ -54,9 +59,16 @@ const Button = styled.button`
 
 const Link = styled.a`
   margin: 5px 0px;
+  color:black;
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
+  :hover{
+    text-decoration: none;
+  }
+  :active{
+    text-decoration: none;
+  }
 `;
 
 const Login = () => {
@@ -67,10 +79,12 @@ const Login = () => {
         <Form>
           <Input placeholder="username" />
           <Input placeholder="password" />
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
         </Form>
+        <Link href="/Login">
+          <Button>LOGIN</Button>
+        </Link>
+        <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+        <Link href="/Register">CREATE A NEW ACCOUNT</Link>
       </Wrapper>
     </Container>
   );

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import IconButton from '@mui/material/IconButton';
+import { Link } from "react-router-dom";
+import "../App.css"
 
 const Container = styled.div`
   width: 100vw;
@@ -19,8 +23,13 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
-  background-color: white;
-  ${mobile({ width: "75%" })}
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display:flex;
+  border-radius:5px;
+  flex-direction:column;
+  gap:1rem;
+  ${mobile({ width: "75%" })};
 `;
 
 const Title = styled.h1`
@@ -55,6 +64,12 @@ const Button = styled.button`
   cursor: pointer;
   border-radius:5px;
 `;
+const Lower = styled.span`
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:0 0 2px 0;
+`
 
 const Register = () => {
   return (
@@ -72,7 +87,15 @@ const Register = () => {
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Lower>
+            <Button>CREATE</Button>
+            <Link to="/" className="link">
+              <IconButton size="small">
+                <ArrowBackIosIcon />
+                Back
+              </IconButton>
+            </Link>
+          </Lower>
         </Form>
       </Wrapper>
     </Container>
